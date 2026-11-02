@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sign in · LATHISH VAULT</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0a0912">
+<link rel="stylesheet" href="/assets/css/theme.css">
+<link rel="stylesheet" href="/assets/css/app.css">
+</head>
+<body>
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="floaters" id="floaters" aria-hidden="true"></div>
+<div class="ticker" id="ticker" aria-label="Simulated market ticker"></div>
+<main class="login-wrap">
+  <section class="login-card glass" aria-labelledby="t">
+    <div class="brand"><svg class="ico" aria-hidden="true"><use href="/assets/icons/sprite.svg#i-vault"/></svg><div id="t">LATHISH VAULT</div></div>
+    <p class="tag">Your Data. Your Assets. Your Control.</p>
+
+    <form id="login-form" novalidate>
+      <div class="field"><label for="email">Email</label><input class="input" id="email" type="email" autocomplete="username" required></div>
+      <div class="field"><label for="password">Password</label><input class="input" id="password" type="password" autocomplete="current-password" required></div>
+      <p id="login-msg" class="msg" role="alert"></p>
+      <button class="btn primary" id="login-btn" type="submit">Sign in</button>
+      <p class="center-row"><button class="link-btn" id="forgot" type="button">Forgot password?</button></p>
+    </form>
+
+    <form id="reset-form" hidden novalidate>
+      <p class="muted">Enter the owner email. If it matches, a verified reset link is sent.</p>
+      <div class="field"><label for="reset-email">Email</label><input class="input" id="reset-email" type="email" autocomplete="username" required></div>
+      <p id="reset-msg" class="msg" role="status"></p>
+      <button class="btn primary" id="reset-btn" type="submit">Send reset link</button>
+      <p class="center-row"><button class="link-btn" id="back" type="button">Back to sign in</button></p>
+    </form>
+
+    <form id="newpw-form" hidden novalidate>
+      <p class="muted">Choose a new password (12+ characters).</p>
+      <div class="field"><label for="newpw">New password</label><input class="input" id="newpw" type="password" autocomplete="new-password" minlength="12" required></div>
+      <div class="field"><label for="newpw2">Confirm password</label><input class="input" id="newpw2" type="password" autocomplete="new-password" minlength="12" required></div>
+      <p id="newpw-msg" class="msg" role="alert"></p>
+      <button class="btn primary" id="newpw-btn" type="submit">Set password</button>
+    </form>
+    <p class="sim-note">Ticker values are simulated for visual effect and are not live market data.</p>
+  </section>
+</main>
+<script type="module" src="/assets/js/login.js"></script>
+</body>
+</html>

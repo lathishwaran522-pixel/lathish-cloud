@@ -1,0 +1,21 @@
+node_modules/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+.env.local
+.env.production
+.env.development
+
+# Vercel
+.vercel/
+
+# Logs
+*.log
+
+# System files
+.DS_Store
+
+# Testing
+coverage/

@@ -1,0 +1,22 @@
+{
+  "name": "lathish-vault",
+  "version": "1.0.0",
+  "private": true,
+  "description": "LATHISH VAULT - single-user private cloud storage (Vercel + Supabase + Backblaze B2)",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "node scripts/dev-server.mjs",
+    "test": "node --test \"tests/unit/*.test.mjs\"",
+    "test:integration": "RUN_INTEGRATION=1 node --test \"tests/integration/*.test.mjs\"",
+    "lint": "node scripts/check-code.mjs",
+    "audit": "npm audit --omit=dev --audit-level=moderate",
+    "check:env": "node scripts/check-env.mjs",
+    "create-owner": "node scripts/create-owner.mjs",
+    "find-orphans": "node scripts/find-orphans.mjs"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "3.700.0",
+    "@aws-sdk/s3-request-presigner": "3.700.0"
+  }
+}

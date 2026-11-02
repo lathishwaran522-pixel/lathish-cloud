@@ -1,0 +1,77 @@
+:root {
+  --bg: #0a0912; --bg2: #120f22; --surface: rgba(255,255,255,.045); --surface-2: rgba(255,255,255,.075);
+  --line: rgba(255,255,255,.09); --text: #ebe9f5; --muted: #9b98b3;
+  --green: #2dffa1; --cyan: #2bd9ff; --violet: #9b72ff; --red: #ff5271; --amber: #ffc857;
+  --radius: 14px; --glow-g: 0 0 18px rgba(45,255,161,.28); --glow-v: 0 0 22px rgba(155,114,255,.3);
+  --sans: ui-sans-serif, "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; min-height: 100vh; font: 15px/1.5 var(--sans); color: var(--text);
+  background: radial-gradient(1200px 700px at 85% -10%, rgba(155,114,255,.18), transparent 60%),
+              radial-gradient(900px 600px at -10% 110%, rgba(43,217,255,.10), transparent 55%), linear-gradient(180deg, var(--bg), var(--bg2)); }
+h1, h2, h3 { margin: 0; font-weight: 650; letter-spacing: -.01em; }
+a { color: var(--cyan); }
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; border-radius: 6px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip { position: absolute; left: 8px; top: -60px; z-index: 100; background: var(--violet); color: #fff; padding: 8px 14px; border-radius: 8px; }
+.skip:focus { top: 8px; }
+.mono { font-family: var(--mono); }
+.muted { color: var(--muted); }
+.up { color: var(--green); } .down { color: var(--red); }
+.ico { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+.ico.sm { width: 16px; height: 16px; } .ico.lg { width: 34px; height: 34px; }
+
+.glass { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  backdrop-filter: blur(14px) saturate(130%); -webkit-backdrop-filter: blur(14px) saturate(130%); }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 10px; border: 1px solid var(--line);
+  background: var(--surface-2); transition: transform .15s, box-shadow .2s, border-color .2s, background .2s; }
+.btn:hover:not(:disabled) { border-color: rgba(155,114,255,.55); box-shadow: var(--glow-v); }
+.btn:active:not(:disabled) { transform: translateY(1px); }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn.primary { background: linear-gradient(135deg, #1fe597, #19b9d6); color: #04120c; font-weight: 650; border-color: transparent; }
+.btn.primary:hover:not(:disabled) { box-shadow: var(--glow-g); }
+.btn.danger { border-color: rgba(255,82,113,.5); color: var(--red); }
+.btn.ghost { background: transparent; }
+.btn.icon { padding: 8px; }
+.field { display: grid; gap: 6px; margin-bottom: 14px; }
+.field label { font-size: 13px; color: var(--muted); }
+.input { width: 100%; padding: 11px 13px; border-radius: 10px; border: 1px solid var(--line); background: rgba(0,0,0,.28); }
+.input:focus { border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(43,217,255,.15); outline: none; }
+.msg { min-height: 1.4em; font-size: 14px; } .msg.err { color: var(--red); } .msg.ok { color: var(--green); }
+
+#bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; opacity: .28; pointer-events: none; }
+.floaters { position: fixed; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.floater { position: absolute; bottom: -60px; width: 34px; height: 34px; color: var(--violet); opacity: 0; fill: none; stroke: currentColor; stroke-width: 1.3;
+  animation: floatUp linear infinite; }
+.floater.f1 { left: 6%;  animation-duration: 38s; animation-delay: -4s; } .floater.f2 { left: 19%; animation-duration: 46s; animation-delay: -20s; color: var(--cyan); }
+.floater.f3 { left: 33%; animation-duration: 41s; animation-delay: -11s; } .floater.f4 { left: 47%; animation-duration: 52s; animation-delay: -30s; color: var(--green); }
+.floater.f5 { left: 61%; animation-duration: 44s; animation-delay: -2s; } .floater.f6 { left: 74%; animation-duration: 49s; animation-delay: -24s; color: var(--cyan); }
+.floater.f7 { left: 86%; animation-duration: 40s; animation-delay: -15s; } .floater.f8 { left: 94%; animation-duration: 55s; animation-delay: -35s; color: var(--green); }
+@keyframes floatUp { 0% { transform: translateY(0) rotate(0); opacity: 0; } 10% { opacity: .22; } 90% { opacity: .18; } 100% { transform: translateY(-115vh) rotate(25deg); opacity: 0; } }
+@keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes shimmer { to { background-position: -200% 0; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+.skeleton { background: linear-gradient(90deg, var(--surface) 25%, var(--surface-2) 37%, var(--surface) 63%); background-size: 200% 100%; animation: shimmer 1.4s linear infinite; border-radius: 10px; min-height: 18px; }
+.spinner { width: 18px; height: 18px; border: 2px solid var(--line); border-top-color: var(--cyan); border-radius: 50%; animation: spin .8s linear infinite; display: inline-block; }
+.page-in { animation: rise .35s ease both; }
+
+/* ticker */
+.ticker { position: relative; z-index: 2; overflow: hidden; border-block: 1px solid var(--line); background: rgba(0,0,0,.35); font-family: var(--mono); font-size: 12.5px; }
+.ticker-track { display: flex; width: max-content; gap: 36px; padding: 7px 0; animation: marquee 60s linear infinite; }
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.tick { display: inline-flex; gap: 8px; white-space: nowrap; } .tick b { font-weight: 600; }
+.sim-tag { position: absolute; right: 0; top: 0; bottom: 0; display: flex; align-items: center; padding: 0 12px; background: linear-gradient(90deg, transparent, #0a0912 40%); color: var(--amber); font-size: 11px; letter-spacing: .06em; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+  .floaters { display: none; }
+  .ticker-track { width: auto; flex-wrap: wrap; animation: none !important; padding-inline: 12px; }
+}
+a.btn { text-decoration: none; color: var(--text); }
+a.btn.primary { color: #04120c; }

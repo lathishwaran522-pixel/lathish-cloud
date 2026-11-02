@@ -1,0 +1,10 @@
+[
+  {
+    "corsRuleName": "lathish-vault-browser",
+    "allowedOrigins": ["https://vault.example.com"],
+    "allowedOperations": ["s3_put", "s3_get", "s3_head"],
+    "allowedHeaders": ["*"],
+    "exposeHeaders": ["ETag"],
+    "maxAgeSeconds": 3600
+  }
+]
